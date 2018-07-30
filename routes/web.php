@@ -20,5 +20,8 @@ Route::get('main/successlogin', 'MainController@successlogin');
 Route::get('main/logout', 'MainController@logout');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/addstudent', 'HomeController@index')->name('addstudent');
+Route::get('/home', 'HomeController@index')->name('home'); 
+
+Route::get('/student/create', 'studentController@index')->name('create');
+Route::post('student', 'studentController@store');
+
