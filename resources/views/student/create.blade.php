@@ -18,8 +18,8 @@
                                 @csrf
                                 <div class="form-row">
                                   <div class="form-group col-md-2">
-                                    <label for="inputsid">Student Id</label>
-                                    <input type="text" class="form-control" name="sid" placeholder="Student Id" required>
+                                    <label for="input rfid">RFID</label>
+                                    <input type="text" class="form-control" name="rfid" placeholder="RFID" required>
                                   </div>
                                   <div class="form-group col-md-5">
                                     <label for="inputfname">First Name</label>

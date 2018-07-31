@@ -14,6 +14,7 @@ class studentcontroller extends Controller
     public function store(request $request){
 
         $student = new Student();
+        $student->rfid=$request->rfid;
         $student->fname=$request->fname;
         $student->lname=$request->lname;
         $student->dob=$request->dob;
