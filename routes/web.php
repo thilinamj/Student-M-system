@@ -25,3 +25,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student/create', 'studentController@index')->name('create');
 Route::post('student', 'studentController@store');
 
+Route::get('/course/create', 'courseController@index')->name('create_course');
+Route::post('course', 'courseController@store');
+
