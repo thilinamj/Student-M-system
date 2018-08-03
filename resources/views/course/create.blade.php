@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">Create New Course</div>
                         <div class="card-body">
-                                <form method="post" action="{{url('')}}" >
+                                <form method="post" action="{{url('course')}}" >
                                  @csrf
                                 <div class="form-row">
                                         <div class="form-group col-md-4">
@@ -19,29 +19,29 @@
                                           <input type="text" class="form-control" name="ayear" placeholder="Academic Year" required>
                                         </div>
                                         <div class="form-group col-md-8">
-                                            <label for="input rfid">Class Name</label>
-                                            <input type="text" class="form-control" name="ayear" placeholder="Class Name" required>
+                                            <label for="input classname">Class Name</label>
+                                            <input type="text" class="form-control" name="classname" placeholder="Class Name" required>
                                         </div>
                                 </div>
                                 <div class="form-row">
                                         <div class="form-group col-md-4">
-                                                <label for="nationality">Day</label>
-                                                <input type="text" name="nationality" class="form-control" id="nationality"  placeholder="Description"required>
+                                                <label for="day">Day</label>
+                                                <input type="text" name="day" class="form-control" id="day"  placeholder="Description"required>
                                         </div>
                                         <div class="form-group col-md-4">
-                                                <label for="nationality">Time Duration</label>
-                                                <input type="text" name="nationality" class="form-control" id="nationality"  placeholder="Description"required>
+                                                <label for="time">Time Duration</label>
+                                                <input type="text" name="time" class="form-control" id="time"  placeholder="Description"required>
                                         </div>
                                         <div class="form-group col-md-2">
-                                          <label for="inputState">Hall/Group</label>
-                                          <select id="inputState" class="form-control" name="state">
+                                          <label for="inputclasstype">Hall/Group</label>
+                                          <select id="inputclasstype" class="form-control" name="classtype">
                                             <option>Hall</option>
                                             <option>Group</option>
                                           </select>
                                         </div>
                                         <div class="form-group col-md-2">
-                                          <label for="inputSex">Batch</label>
-                                          <select id="inputSex" class="form-control" name="">Batch
+                                          <label for="inputbatch">Batch</label>
+                                          <select id="inputbatch" class="form-control" name="batch">Batch
                                             <option >Batch 1</option>
                                             <option>Batch 2</option>
                                           </select>
