@@ -64,6 +64,8 @@
    
 </div>
 @endsection
+@section('script')
+@stop
 
 
 
