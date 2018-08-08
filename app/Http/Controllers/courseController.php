@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use\App\Course;
+use App\ayear;
 
 class courseController extends Controller
 {
@@ -24,4 +25,13 @@ class courseController extends Controller
 
         
     }
+
+    public function viewfunc(){
+
+
+        $prod=ayear::all();
+        return view('course.view',compact('prod'));
+    }
+
 }
+
