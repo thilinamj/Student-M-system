@@ -26,11 +26,10 @@ class courseController extends Controller
         
     }
 
-    public function viewfunc(){
+    public function show(){
 
-
-        $prod=ayear::all();
-        return view('course.view',compact('prod'));
+        $courses = Course::get();
+        return view('course.view',['courses'=>$courses]);
     }
 
 }

@@ -27,6 +27,10 @@ Route::post('student', 'studentController@store');
 
 Route::get('/course/create', 'courseController@index')->name('create_course');
 Route::post('course', 'courseController@store');
-Route::get('/course/view', 'courseController@viewfunc')->name('view_course');
+Route::get('/course/view', 'courseController@show')->name('view_course');
+
+
+Route::get('create-chart/{type}','ChartController@makeChart');
+
 
 
