@@ -32,5 +32,11 @@ class courseController extends Controller
         return view('course.view',['courses'=>$courses]);
     }
 
+    public function delete($id){
+        student::destroy($id);
+        return view('course.view');
+
+
+    }
 }
 

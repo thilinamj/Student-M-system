@@ -30,7 +30,8 @@ Route::post('course', 'courseController@store');
 Route::get('/course/view', 'courseController@show')->name('view_course');
 
 
-Route::get('create-chart/{type}','ChartController@makeChart');
+Route::get('/chart','ChartController@getMember');
+Route::delete("/course/delete",'courseController@index');
 
 
 
