@@ -14,8 +14,11 @@
                        <table class="table">
                            <thead>
                                <tr>
+                                   <th>A.Year</th>
                                    <th>Class Name</th>
-                                   <th>Class Type</th>
+                                   <th>Day</th>
+                                   <th>Time</th>
+                                   <th>Class type</th>
                                    <th>Batch</th>
                                    <th>Action</th>
                                </tr>
@@ -23,8 +26,18 @@
                            <tbody>
                                @foreach($courses as $course)
                                <tr>
+                                   <td>{{$course->ayear}}</td>
                                    <td>{{$course->classname}}</td>
-                                   <td>{{$course->classname}}</td>
+                                   <td>{{$course->day}}</td>
+                                   <td>{{$course->time}}</td>
+                                   <td>{{$course->classtype}}</td>
+                                   <td>{{$course->batch}}</td>
+
+                               <td>
+                                   <a href="{{ url('course/delete' .$course->id)}}" class="btn btn-success">Delete</a>
+                                
+                            </td>
+
                                </tr>
                                @endforeach
                         </div>
