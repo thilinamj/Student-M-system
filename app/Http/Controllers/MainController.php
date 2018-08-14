@@ -8,7 +8,7 @@ use Auth;
 
 class MainController extends Controller
 {
-    function index()
+    function login()
     {
      return view('login');
     }
@@ -27,7 +27,7 @@ class MainController extends Controller
 
      if(Auth::attempt($user_data))
      {
-      return redirect('main/successlogin');
+      return redirect('home');
      }
      else
      {
@@ -38,13 +38,13 @@ class MainController extends Controller
 
     function successlogin()
     {
-     return view('successlogin');
+     return view('home');
     }
 
     function logout()
     {
      Auth::logout();
-     return redirect('main');
+     return redirect('/');
     }
 }
 

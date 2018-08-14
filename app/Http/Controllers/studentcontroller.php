@@ -23,11 +23,9 @@ class studentcontroller extends Controller
         $student->email=$request->email;
         $student->address1=$request->address1;
         $student->address2=$request->address2;
-        $student->nationality=$request->nationality;
-        $student->sex=$request->sex;
         $student->state=$request->state;
         $student->save();
-        return redirect('student/create')->with('popup', 'open');
+        return redirect('/student/create')->with('popup', 'open');
 
         $request->validate([
             'nic' => 'bail|required|unique:posts|max:9',
