@@ -23,7 +23,6 @@ class CreateStudentsTable extends Migration
             $table->string('email');
             $table->string('address1');
             $table->string('address2');
-            $table->string('nationality');
             $table->string('sex');
             $table->string('state');
             $table->timestamps();

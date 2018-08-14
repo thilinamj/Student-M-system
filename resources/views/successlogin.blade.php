@@ -25,10 +25,12 @@
     <a href="{{ url('/main/logout') }}">Logout</a>
    </div>
   @else
-   <script>window.location = "/main";</script>
+   <script>window.location = "/welcome";</script>
   @endif
 
    <br />
   </div>
+
+
  </body>
 </html>
