@@ -58,15 +58,8 @@
                   </ul>
                 </li>
 
+                <li id="topNavDashboard"><a href="{{ route('create_course') }}"> <i class="glyphicon glyphicon-edit"></i> Class <span class="sr-only">(current)</span></a></li>
 
-              <li class="dropdown" id="topClassMainNav">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-edit"></i> Class <span class="caret"></span></a>
-                <ul class="dropdown-menu">            
-                  <li id="topNavClass"><a href="">Manage Class</a></li>                        
-                  <li id="topNavSection"><a href="">Manage Section</a></li>                                 
-                  <li id="topNavSubject"><a href="">Manage Subject</a></li>           
-                </ul>
-              </li>
 
 
              <!--

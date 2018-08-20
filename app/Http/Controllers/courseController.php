@@ -14,12 +14,14 @@ class courseController extends Controller
     }
     public function store(request $request){
         $course = new Course();
-        $course->ayear=$request->ayear;
+        $course->class_code=$request->class_code;
         $course->classname=$request->classname;
+        $course->section=$request->section;
         $course->day=$request->day;
-        $course->time=$request->time;
-        $course->classtype=$request->classtype;
-        $course->batch=$request->batch;
+        $course->start_time=$request->start_time;
+        $course->end_time=$request->end_time;
+       
+       
         $course->save();
         return redirect('course/create')->with('popup', 'open');
 
@@ -28,9 +30,14 @@ class courseController extends Controller
 
     public function show(){
 
-        $courses = Course::get();
-        return view('course.view',['courses'=>$courses]);
+        try{
+         return  Course::get();
+       
+        }catch(excepton $e){
+            return 'false';
+        }
     }
+
 
     public function delete($id){
         student::destroy($id);

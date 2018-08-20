@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <div class="container ">
-    <div class="row">
-
-            <nav aria-label="breadcrumb">
+    
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item active" aria-current="page">Home</li>
                     </ol>
-                  </nav>
+                 
+                  <div class="row">
         <div class="col-md-4">
+                @include('layouts/sidebar')
           
         </div>
 
@@ -20,6 +20,7 @@
                        </div>
                         <div class="card-body">
                      
+                            
                         </div>
                 </div>
             </div>
@@ -27,11 +28,7 @@
    
 </div>
 @section('script')
-<script type="text/javascript">
-$(document).ready(function(){
- alert("The paragraph was clicked.")
- });
-</script>
+
 @stop
 @endsection
 
