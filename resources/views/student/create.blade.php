@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container ">
         <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -9,12 +10,12 @@
               <div class="panel panel-default">
                     <div class="panel-heading">
                       Add New Student
-                        
+
+                    
                     </div>
-                    <div class="panel-body">
-                         
-                  
-                       
+                    
+                    <div class="panel-body ">
+                     
                       <form method="post" action="{{url('student')}}" >
                         @csrf
                             <div class="col-md-6">
@@ -25,11 +26,11 @@
                                 
                                 <div class="form-group col-md-6">
                                   <label for="inputfname">First Name</label>
-                                  <input type="text" class="form-control" name="fname" placeholder="First Name"required>
+                                  <input type="text" class="form-control" name="fname" placeholder="First Name">
                                 </div>
                                 <div class="form-group col-md-6">
                                   <label for="inputlname">Last Name</label>
-                                  <input type="text" class="form-control" name="lname" placeholder="Last Name"required>
+                                  <input type="text" class="form-control" name="lname" placeholder="Last Name">
                                   </div>
                               </div>
                           
@@ -145,21 +146,25 @@
                               <br /> <br />
                               <center>  
 
-                                  <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                  <button type="submit" class="show-modal btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                       Save
                                     </button>
-                              
-                                  
-                              </center>       
+                                 
                             </div>
                                     
                   
                           </form>
                     </div>
-                  
-                    
-
-                  
+                                
 @endsection
+
+
+@section('script')
+<script>
+
+</script>
+@stop
+
+
 
 

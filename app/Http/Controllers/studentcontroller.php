@@ -25,14 +25,21 @@ class studentcontroller extends Controller
         $student->address2=$request->address2;
         $student->state=$request->state;
         $student->save();
-        return redirect('/student/create')->with('popup', 'open');
-
-        $request->validate([
-            'nic' => 'bail|required|unique:posts|max:9',
-            'pnumber' => 'bail|required|unique:pnumber|max:10',
-            
-        ]);
-    }
+        return redirect('/student/create')->with('message', 'Registration Succeful!');
+      
+        $this->validate($request,[
+            'rfid' => 'required',
+           
+            ]);
     
+    
+        $items = Item::store($request->all());
+        return back()->with('success','Item created successfully!');
+
+    }
+
 
 }
+    
+
+
