@@ -27,11 +27,12 @@ Route::post('student', 'studentController@store');
 
 Route::get('/course/create', 'courseController@index')->name('create_course');
 Route::post('course', 'courseController@store');
-Route::get('/course/view', 'courseController@show')->name('view_course');
+Route::get('/course/create', 'courseController@show')->name('create_course');
+Route::delete('/course/delete','courseController@delete');
 
 
 Route::get('/chart','ChartController@getMember');
-Route::delete("/course/delete",'courseController@index');
+
 
 
 
