@@ -13,6 +13,8 @@ class courseController extends Controller
         return view('course.create');
     }
     public function store(request $request){
+    
+    
         $course = new Course();
         $course->class_code=$request->class_code;
         $course->classname=$request->classname;
@@ -30,20 +32,15 @@ class courseController extends Controller
 
     public function show(){
 
-        try{
-         return  Course::get();
-       
-        }catch(excepton $e){
-            return 'false';
-        }
+       $courses= course::get();
+       return view('course/create',['courses'=>$courses]);
     }
 
 
-    public function delete($id){
-        student::destroy($id);
-        return view('course.view');
-
-
+    public function delete($course_id){
+        $course = \App\course::find($course_id);
+        $course->delete();
+        return redirect('course/create')->with('success','Information has been  deleted');
     }
 }
 
