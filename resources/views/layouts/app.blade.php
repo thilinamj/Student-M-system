@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+   
 
 
     <!-- Fonts -->
@@ -115,9 +115,10 @@
         </main>
     </div>
 
-
+   
 <script src="{{ asset('js/jquery.min.js') }}"></script> 
 <script src="{{ asset('js/bootstrap.min.js') }}"></script> 
+<script src="{{ asset('js/app.js') }}" defer></script>
 @yield('script') 
 </body>
 </html>

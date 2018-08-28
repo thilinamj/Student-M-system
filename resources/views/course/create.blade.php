@@ -9,12 +9,15 @@
         <div class="col-md-4">
             @include('layouts/sidebar')
         </div>
-
+       
     
             <div class="col-md-8">
                     <div class="panel panel-default">
                             <div class="panel-heading">Create New Class</div>
                             <div class="panel-body">
+                                    <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal">
+                                            Add New
+                                       </button>
                                   
                                <form method="post" action="{{url('course')}}", id="formData" >
                               @csrf
@@ -96,11 +99,66 @@
             @endforeach 
 
         </tbody>
+
+
+        
+
+   <!-- Modal edit -->
+   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Edit</h4>
+            </div>
+            <form action="{{route('allcourse.update' ,'test')}}" method="post">
+               {{method_field('patch')}}
+                 {{csrf_field()}}
+                <div class="modal-body">
+                       <div class="form-group">
+                               <label for="title">Title</label>
+                               <input type="text" class="form-control" name="title" id="title">
+                           </div>
+           
+                           <div class="form-group">
+                               <label for="des">Description</label>
+                               <textarea name="description" id="des" cols="20" rows="5" id='des' class="form-control"></textarea>
+                           </div>
+                </div>
+              
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-classcode="{{$course->class_code}}" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+   <!-- //Modal -->
+   
+
+
+       
   
 </div>
 @endsection
-<!--
+
 @section('script')
+
+<script type="text/javascript">
+    $('#myModal').on('show.bs.modal', function (event) {
+        console.log("kjngjhjg");
+    
+      var button = $(event.relatedTarget) 
+      var recipient = button.data('whatever') 
+      var modal = $(this)
+      modal.find('.modal-title').text('New message to ' + recipient)
+      modal.find('.modal-body input').val(recipient)
+    })
+    </script>
+
+<!--
 <script type="text/javascript">
     $(document).ready(function($){
          getAll()
@@ -147,5 +205,6 @@
 </script>
 @stop
 -->
+
 
 
