@@ -32,6 +32,8 @@ Route::delete('/course/delete','courseController@delete');
 
 
 Route::get('/chart','ChartController@getMember');
+Route::resource('allcourse','AllcourseController');
+
 
 
 
