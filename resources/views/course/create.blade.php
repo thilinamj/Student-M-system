@@ -24,30 +24,30 @@
                                  <div class="form-row">
                                     <div class="form-group col-md-8">
                                         <label for="input class">Class Name</label>
-                                        <input type="text" class="form-control" name="classname" placeholder="Class"  > 
+                                        <input type="text" class="form-control" name="classname" placeholder="Class" required > 
                                     </div>
                                   
                                     <div class="form-group col-md-4">
                                         <label for="input section">Section</label>
-                                        <input type="text" class="form-control" name="section" placeholder="Section"  >
+                                        <input type="text" class="form-control" name="section" placeholder="Section" required >
                                     </div>
                             </div>
                             <div class="form-row">
                                     <div class="form-group col-md-3">
                                             <label for="classcode">Class code</label>
-                                            <input type="text" name="class_code" class="form-control"   placeholder="Class Code" >
+                                            <input type="text" name="class_code" class="form-control"   placeholder="Class Code" required>
                                     </div>
                                     <div class="form-group col-md-3">
                                             <label for="input day">Date</label>
-                                            <input type="date" class="form-control" name="day" >
+                                            <input type="date" class="form-control" name="day" required>
                                           </div>
                                     <div class="form-group col-md-3">
                                             <label for="time">Start Time</label>
-                                            <input type="time" name="start_time" class="form-control" id="time" >
+                                            <input type="time" name="start_time" class="form-control" id="time" required>
                                     </div>
                                     <div class="form-group col-md-3">
                                       <label for="inputtime">End Time</label>
-                                     <input type="time" name="end_time" class="form-control" id="time" >
+                                     <input type="time" name="end_time" class="form-control" id="time" required>
                                     </div>
                                     
                             </div>
