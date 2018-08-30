@@ -16,10 +16,9 @@
                             <div class="panel-heading">Create New Class</div>
                             <div class="panel-body">
                                   
-                               <form method="post" action="{{url('course')}}", id="formData" >
-                              @csrf  
-
-                            </form>
+                               <form ,> </form>
+                           
+                            
                             <table class="table table-responsive">
                                 <thead>
                                         <tr>
@@ -47,7 +46,7 @@
                                                 <td>
                                                 <button class="btn btn-info" data-crid="{{$course->id}}" data-myclz="{{$course->classname}}" data-toggle="modal" data-target="#edit">Edit</button>
                                                     /
-                                                    <button class="btn btn-danger"  data-toggle="modal" data-target="#delete">Delete</button>
+                                                    <button class="btn btn-danger"  data-crid="{{$course->id}}" data-toggle="modal" data-target="#delete">Delete</button>
                                                 </td>
                                             
                                         </tr>
@@ -78,7 +77,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel">Edit</h4>
             </div>
-            <form action="{{route('allcourse.update' ,'test')}}" method="post">
+            <form action="{{route('allcourse.update' ,'test')}}" method="post" >
                {{method_field('patch')}}
                  {{csrf_field()}}
                 <div class="modal-body">
@@ -105,6 +104,32 @@
       </div>
       
    <!-- //Modal -->
+
+   <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      <form action="{{route('allcourse.destroy','test')}}" method="post">
+      		{{method_field('delete')}}
+      		{{csrf_field()}}
+	      <div class="modal-body">
+				<p class="text-center">
+					Are you sure you want to delete this?
+				</p>
+                <input type="hidden" name="course_id" id="cr_id" value="">
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+	        <button type="submit" class="btn btn-warning">Yes, Delete</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
    
 
 
@@ -128,6 +153,20 @@
       modal.find('.modal-body #cr_id').val(cr_id);
       
     })
+
+    
+
+    $('#delete').on('show.bs.modal', function (event) {
+
+    var button = $(event.relatedTarget) 
+
+    var cr_id = button.data('crid') 
+    var modal = $(this)
+
+    modal.find('.modal-body #cr_id').val(cr_id);
+})
+
+
     </script>
 
 
