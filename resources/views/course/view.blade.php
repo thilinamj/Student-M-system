@@ -44,7 +44,7 @@
                                                 <td>{{$course->start_time}}</td>
                                                 <td>{{$course->end_time}}</td>
                                                 <td>
-                                                <button class="btn btn-info" data-crid="{{$course->id}}" data-myclz="{{$course->classname}}" data-toggle="modal" data-target="#edit">Edit</button>
+                                                <button class="btn btn-info" data-crid="{{$course->id}}" data-myclz="{{$course->classname}}" data-mysec="{{$course->section}}" data-myday="{{$course->day}}" data-mystime="{{$course->start_time}}" data-myetime="{{$course->end_time}}" data-toggle="modal" data-target="#edit">Edit</button>
                                                     /
                                                     <button class="btn btn-danger"  data-crid="{{$course->id}}" data-toggle="modal" data-target="#delete">Delete</button>
                                                 </td>
@@ -83,16 +83,33 @@
                 <div class="modal-body">
 
                     <input type="hidden" name="course_id" id="cr_id" value="">
-                       <div class="form-group">
-                               <label for="title">Class</label>
-                               <input type="text" class="form-control" name="classname" id="classid">
-                           </div>
-           
-                           <div class="form-group">
-                               <label for="des">Description</label>
-                               <textarea name="description" id="des" cols="20" rows="5" id='des' class="form-control"></textarea>
-                           </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="title">Class</label>
+                            <input type="text" class="form-control" name="classname" id="classid">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="classname">Section</label>
+                            <input type="text" class="form-control" name="section" id="sec_id"  >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 ">
+                            <label for="input ayear">Date</label>
+                            <input type="date" class="form-control" name="day" id="day_id" >
+                        </div>
+                        <div class="form-group col-md-4  ">
+                            <label for="time">Start Time</label>
+                            <input type="time" name="start_time" class="form-control" id="stime_id">
+                        </div>
+                        <div class="form-group col-md-4 ">
+                            <label for="inputclasstype">End Time</label>
+                            <input type="time" name="end_time" class="form-control" id="etime_id">
+                        </div>
+                    </div>
+
                 </div>
+                <hr>
               
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
@@ -102,6 +119,7 @@
           </div>
         </div>
       </div>
+      <hr>
       
    <!-- //Modal -->
 
@@ -145,12 +163,24 @@
         console.log("kjngjhjg");
     
       var button = $(event.relatedTarget) 
+      var cr_id = button.data('crid')
       var classid = button.data('myclz') 
-      var cr_id = button.data('crid') 
+      var sec_id = button.data('mysec') 
+      var day_id = button.data('myday') 
+      var stime_id = button.data('mystime') 
+      var etime_id = button.data('myetime') 
+ 
+      
       var modal = $(this)
 
-      modal.find('.modal-body input').val(classid);
+     
       modal.find('.modal-body #cr_id').val(cr_id);
+      modal.find('.modal-body #classid').val(classid);
+      modal.find('.modal-body #sec_id').val(sec_id);
+      modal.find('.modal-body #day_id').val(day_id);
+      modal.find('.modal-body #stime_id').val(stime_id);
+      modal.find('.modal-body #etime_id').val(etime_id);
+    
       
     })
 
