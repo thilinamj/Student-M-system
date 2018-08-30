@@ -26,7 +26,7 @@ class AllcourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('course.create');
     }
 
     /**
@@ -37,7 +37,17 @@ class AllcourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $course = new Course();
+        $course->class_code=$request->class_code;
+        $course->classname=$request->classname;
+        $course->section=$request->section;
+        $course->day=$request->day;
+        $course->start_time=$request->start_time;
+        $course->end_time=$request->end_time;
+       
+       
+        $course->save();
+        return redirect('course/create')->with('popup', 'open');
     }
 
     /**
@@ -69,9 +79,12 @@ class AllcourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        
+         $Course = course::findOrFail($request->course_id);
+         $Course->update($request->all());
+          return back();
     }
 
     /**
