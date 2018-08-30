@@ -37,6 +37,17 @@ class AllcourseController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+
+            'class_code'=>'required',
+            'classname'=>'required',
+            'section'=>'required',
+            'day'=>'required',
+            'start_time'=>'required',
+            'end_time'=>'required',
+
+        ]);
+
         $course = new Course();
         $course->class_code=$request->class_code;
         $course->classname=$request->classname;
@@ -47,7 +58,7 @@ class AllcourseController extends Controller
        
        
         $course->save();
-        return redirect('course/create')->with('popup', 'open');
+        return redirect('allcourse/create')->with('sucess', 'Registered Successful!');
     }
 
     /**
