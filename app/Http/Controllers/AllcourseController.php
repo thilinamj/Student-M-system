@@ -81,7 +81,7 @@ class AllcourseController extends Controller
      */
     public function update(Request $request)
     {
-        
+       
          $Course = course::findOrFail($request->course_id);
          $Course->update($request->all());
           return back();
@@ -93,8 +93,12 @@ class AllcourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $Course = course::findOrFail($request->course_id);
+        $Course->delete();
+
+        return back();
+
     }
 }
