@@ -25,13 +25,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student/create', 'studentController@index')->name('create');
 Route::post('student', 'studentController@store');
 
-Route::get('/course/create', 'courseController@index')->name('create_course');
-Route::post('course', 'courseController@store');
-Route::get('/course/create', 'courseController@show')->name('create_course');
-Route::delete('/course/delete','courseController@delete');
+//Route::get('/course/create', 'courseController@index')->name('create_course');
+//Route::post('course', 'courseController@store');
+//Route::get('/course/create', 'courseController@show')->name('create_course');
+//Route::delete('/course/delete','courseController@delete');
+//Route::get('/chart','ChartController@getMember');
 
-
-Route::get('/chart','ChartController@getMember');
 Route::resource('allcourse','AllcourseController');
 
 

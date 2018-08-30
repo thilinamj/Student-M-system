@@ -58,7 +58,7 @@
                   </ul>
                 </li>
 
-                <li id="topNavDashboard"><a href="{{ route('create_course') }}"> <i class="glyphicon glyphicon-edit"></i> Class <span class="sr-only">(current)</span></a></li>
+                <li id="topNavDashboard"><a href="{{ route('allcourse.index') }}"> <i class="glyphicon glyphicon-edit"></i> Class <span class="sr-only">(current)</span></a></li>
 
 
 

@@ -15,12 +15,9 @@
                     <div class="panel panel-default">
                             <div class="panel-heading">Create New Class</div>
                             <div class="panel-body">
-                                    <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal">
-                                            Add New
-                                       </button>
                                   
                                <form method="post" action="{{url('course')}}", id="formData" >
-                              @csrf
+                              @csrf  
 
                             </form>
                             <table class="table table-responsive">
@@ -48,9 +45,9 @@
                                                 <td>{{$course->start_time}}</td>
                                                 <td>{{$course->end_time}}</td>
                                                 <td>
-                                                    <button class="btn btn-info" data-myclz="{{$course->classname}}" data-toggle="modal" data-target="#myModal">Edit</button>
+                                                <button class="btn btn-info" data-crid="{{$course->id}}" data-myclz="{{$course->classname}}" data-toggle="modal" data-target="#edit">Edit</button>
                                                     /
-                                                    <button class="btn btn-danger" data-catid= data-toggle="modal" data-target="#delete">Delete</button>
+                                                    <button class="btn btn-danger"  data-toggle="modal" data-target="#delete">Delete</button>
                                                 </td>
                                             
                                         </tr>
@@ -74,7 +71,7 @@
         
 
    <!-- Modal edit -->
-   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -85,9 +82,11 @@
                {{method_field('patch')}}
                  {{csrf_field()}}
                 <div class="modal-body">
+
+                    <input type="hidden" name="course_id" id="cr_id" value="">
                        <div class="form-group">
-                               <label for="title">Title</label>
-                               <input type="text" class="form-control" name="title" id="title">
+                               <label for="title">Class</label>
+                               <input type="text" class="form-control" name="classname" id="classid">
                            </div>
            
                            <div class="form-group">
@@ -117,14 +116,17 @@
 @section('script')
 
 <script type="text/javascript">
-    $('#myModal').on('show.bs.modal', function (event) {
+    $('#edit').on('show.bs.modal', function (event) {
         console.log("kjngjhjg");
     
       var button = $(event.relatedTarget) 
-      var title = button.data('myclz') 
+      var classid = button.data('myclz') 
+      var cr_id = button.data('crid') 
       var modal = $(this)
 
-      modal.find('.modal-body input').val(title)
+      modal.find('.modal-body input').val(classid);
+      modal.find('.modal-body #cr_id').val(cr_id);
+      
     })
     </script>
 
