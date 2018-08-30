@@ -39,7 +39,7 @@ class AllcourseController extends Controller
     {
         $this->validate($request,[
 
-            'class_code'=>'required',
+            'class_code'=>'required|unique:courses|max:255',
             'classname'=>'required',
             'section'=>'required',
             'day'=>'required',
@@ -58,7 +58,7 @@ class AllcourseController extends Controller
        
        
         $course->save();
-        return redirect('allcourse/create')->with('sucess', 'Registered Successful!');
+        return redirect('allcourse/create')->with('success', 'Registered Successful!');
     }
 
     /**
