@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use\App\Student;
 use DB;
 
+
 class AllstudentController extends Controller
 {
     /**
@@ -15,11 +16,12 @@ class AllstudentController extends Controller
      */
     public function index()
     {
-        $rfid_list = DB::table('rfid')
+        $rfid_list = DB::table('rfid') ->get();
+      
+       $course_list= DB::table('courses')->get();
         
-        // ->groupBy('id')
-         ->get();
-     return view('student.create')->with('rfid_list', $rfid_list);
+         
+     return view('student.create')->with('rfid_list', $rfid_list)->with('course_list', $course_list);
     }
         
     
@@ -88,5 +90,22 @@ class AllstudentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function fetch(Request $request)
+    { 
+     $select = $request->get('select');    //state-class
+     $value = $request->get('value');
+     $dependent = $request->get('dependent');
+     $data = DB::table('course')
+       ->where($select, $value)
+       ->groupBy($dependent)
+       ->get();
+     $output = '<option value="">Select '.ucfirst($dependent).'</option>';
+     foreach($data as $row)
+     {
+      $output .= '<option value="'.$row->$dependent.'">'.$row->$dependent.'</option>';
+     }
+     echo $output;
     }
 }

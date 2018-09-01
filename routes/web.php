@@ -33,6 +33,7 @@ Route::post('student', 'studentController@store');
 
 Route::resource('allcourse','AllcourseController');
 Route::resource('allstudent','AllstudentController');
+Route::post('allstudent/fetch', 'AllstudentController@fetch')->name('allstudent.fetch');
 
 
 
