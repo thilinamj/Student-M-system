@@ -53,7 +53,10 @@
     </div>
     <div class="form-group">
      <input type="submit" name="login" class="btn btn-primary" value="Login" />
-    </div>
+     <a class="btn btn-link" href="{{ url('/') }}">
+      {{ __('Forgot Your Password?') }}
+  </a>
+    </div> 
    </form>
   </div>
  </body>
