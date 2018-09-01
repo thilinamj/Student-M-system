@@ -32,6 +32,8 @@ Route::post('student', 'studentController@store');
 //Route::get('/chart','ChartController@getMember');
 
 Route::resource('allcourse','AllcourseController');
+Route::resource('allstudent','AllstudentController');
+
 
 
 
