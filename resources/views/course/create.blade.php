@@ -22,12 +22,12 @@
 
                                  
                                  <div class="form-row">
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-6">
                                         <label for="input class">Class Name</label>
                                         <input type="text" class="form-control" name="classname" placeholder="Class" required > 
                                     </div>
                                   
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-6">
                                         <label for="input section">Section</label>
                                         <input type="text" class="form-control" name="section" placeholder="Section" required >
                                     </div>
