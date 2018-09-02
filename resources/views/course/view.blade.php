@@ -13,7 +13,7 @@
     
             <div class="col-md-8">
                     <div class="panel panel-default">
-                            <div class="panel-heading">Create New Class</div>
+                            <div class="panel-heading"><strong> New Class</strong></div>
                             <div class="panel-body">
                                   
                                <form ,> </form>

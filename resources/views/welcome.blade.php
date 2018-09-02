@@ -11,6 +11,11 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <!--Import Google Icon Font-->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <!--Import materialize.css-->
+   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
         <style>
             html, body {
                 background-color: #fff;
@@ -65,13 +70,14 @@
         </style>
     </head>
     <body>
+        
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Admin Dashboard(please log out)</a>
                     @else
-                        <a href="{{ route('main') }}">Login</a>
+                        <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">register</a>
                     @endauth
                 </div>
@@ -90,5 +96,6 @@
                 </div>
             </div>
         </div>
+     
     </body>
 </html>

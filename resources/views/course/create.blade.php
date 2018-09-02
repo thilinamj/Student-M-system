@@ -14,7 +14,7 @@
     
             <div class="col-md-8">
                     <div class="panel panel-default">
-                            <div class="panel-heading">Create New Class</div>
+                            <div class="panel-heading"><strong> Create Class</strong></div>
                             <div class="panel-body">
                             @include('message')   
                                <form method="post" action="{{route('allcourse.store')}}", id="formData" >
