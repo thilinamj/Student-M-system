@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
+   
    
 
 
@@ -95,12 +95,19 @@
             </ul>   
             
             
-            <ul class="nav navbar-nav navbar-right">        
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i> <span class="caret"></span></a>
-                <ul class="dropdown-menu"> 
-                                                
-                  <li><a href="{{ url('/main/logout') }}">Logout</a></li>
+            <ul class="nav navbar-nav navbar-right">      
+              <li>
+                  <a class="" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                   {{ __('Logout') }}
+               </a>
+              </li>
+                
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
                 </ul>
               </li>
             </ul>
@@ -115,7 +122,7 @@
         </main>
     </div>
 
-   
+ 
 <script src="{{ asset('js/jquery.min.js') }}"></script> 
 <script src="{{ asset('js/bootstrap.min.js') }}"></script> 
 <script src="{{ asset('js/app.js') }}" defer></script>

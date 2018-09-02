@@ -8,27 +8,26 @@
                  
                   <div class="row">
         <div class="col-md-4">
-                @include('layouts/sidebar')
+            @include('layouts/sidebar')
           
         </div>
 
     
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                    
-                       </div>
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                                @if(isset(Auth::user()->email))
+                                <div class="">
+                                 <strong>Welcome {{ Auth::user()->name }}</strong>
+                                </div>
+                               @else
+                                <script>window.location = "/login";</script>
+                               @endif
+
+                        </div>
                         <div class="card-body">
-                            @if(isset(Auth::user()->email))
-                            <div class="alert alert-danger success-block">
-                             <strong>Welcome {{ Auth::user()->email }}</strong>
-                             <br />
-                             <a href="{{ url('/main/logout') }}">Logout</a>
-                            </div>
-                           @else
-                            <script>window.location = "/main";</script>
-                           @endif
-                            
+                           
+                           
                         </div>
                 </div>
             </div>
