@@ -4,7 +4,7 @@
 
         <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Class</li>
+                <li class="breadcrumb-item active" aria-current="page">Student Registration</li>
               </ol>
     <div class="row">
         <div class="col-md-4" >
@@ -17,7 +17,7 @@
                             <div class="panel-heading"><strong> Registration</strong></div>
                             <div class="panel-body">
                             @include('message')   
-                               <form method="post" action="{{route('allcourse.store')}}", id="formData" >
+                               <form method="post" action="{{route('allstudent.store')}}", id="formData" >
                               @csrf
 
                                  
@@ -28,35 +28,35 @@
                             </div>
                                   
                                     <div class="form-group col-md-6">
-                                        <label for="input address">Address</label>
-                                        <input type="text" class="form-control" name="address" placeholder="address" required >
+                                        <label for="input address">Current Address</label>
+                                        <input type="text" class="form-control" name="caddress" placeholder="caddress" required >
                                     </div>
                             <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="input name">Parent Name</label>
-                                                <input type="text" class="form-control" name="fullname" placeholder="Full Name" required > 
+                                                <input type="text" class="form-control" name="parentname" placeholder="Full Name" required > 
                                             </div>
                                           
                             <div class="form-group col-md-6">
-                                        <label for="input address">Address</label>
-                                                <input type="text" class="form-control" name="address" placeholder="address" required >
+                                        <label for="input address">Pamenant Address</label>
+                                                <input type="text" class="form-control" name="paddress" placeholder="address"  >
                                     </div>
                             </div>
                             <div class="form-row">
                                    
                                     <div class="form-group col-md-3">
                                             <label for="input day">Birth Date</label>
-                                            <input type="date" class="form-control" name="day" required>
+                                            <input type="date" class="form-control" name="bday" required>
                                           </div>
                                           <div class="form-group col-md-3">
                                             <label for="Tel Number">Mobile Number</label>
-                                            <input type="text" name="pnumber" class="form-control"   placeholder="Phone Number" required>
+                                            <input type="text" name="mnumber" class="form-control"   placeholder="mobile Number" required>
                                             
                                             
                                     </div>
                                     <div class="form-group col-md-3">
                                             <label for="Tel Number">Land number</label>
-                                            <input type="text" name="pnumber" class="form-control"   placeholder="Phone Number" required>
+                                            <input type="text" name="lnumber" class="form-control"   placeholder="Land Number" required >
                                     </div>
                                     <div class="form-group col-md-3">
                                             <label for="email">email</label>
@@ -72,13 +72,13 @@
                                     <label for="sectionName">Registration Number</label>
                                     <select class="form-control" name="rnumber" id="register" >
                                         @foreach($rfid_list as $rn)
-                                        <option value="{{ $rn->id}}">{{ $rn->tag }}</option>
+                                        <option value="{{ $rn->tag}}">{{ $rn->tag }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
                                   <label for="registerDate">Register Date</label>
-                                  <input type="date" class="form-control" id="registerDate" name="registerDate" placeholder="Register Date" autocomplete="off">
+                                  <input type="date" class="form-control" id="registerDate" name="rdate" placeholder="Register Date" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="className">Class</label>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="sectionName">Section</label>
-                                    <select class="form-control" name="sectionName" id="register" data-dependent="classname">
+                                    <select class="form-control" name="sectionname" id="register" data-dependent="classname">
                                         @foreach($course_list as $cr)
                                         <option value="{{ $cr->section}}">{{ $cr->section }}</option>
                                         @endforeach

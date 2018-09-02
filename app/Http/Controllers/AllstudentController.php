@@ -44,7 +44,34 @@ class AllstudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request,[
+
+            'rnumber'=>'required|unique:students|max:10',
+            'fullname'=>'required',
+            'caddress'=>'required',
+            'parentname'=>'required',
+            'bday'=>'required',
+            'mnumber'=>'required',
+            'rdate'=>'required',
+
+        ]);
+
+        $student = new Student();
+        $student->fullname=$request->fullname;
+        $student->caddress=$request->caddress;
+        $student->parentname=$request->parentname;
+        $student->paddress=$request->paddress;
+        $student->bday=$request->bday;
+        $student->mnumber=$request->mnumber;
+        $student->lnumber=$request->lnumber;
+        $student->email=$request->email;
+        $student->rnumber=$request->rnumber;
+        $student->rdate=$request->rdate;
+        $student->classname=$request->classname;
+        $student->sectionname=$request->sectionname;
+        $student->save();
+        return redirect('allstudent')->with('success', 'Registered Successful!');
     }
 
     /**
