@@ -16,12 +16,7 @@ class AllstudentController extends Controller
      */
     public function index()
     {
-        $rfid_list = DB::table('rfid') ->get();
-      
-       $course_list= DB::table('courses')->get();
-        
-         
-     return view('student.create')->with('rfid_list', $rfid_list)->with('course_list', $course_list);
+        return view('student.view');
     }
         
     
@@ -33,7 +28,12 @@ class AllstudentController extends Controller
      */
     public function create()
     {
-        //
+        $rfid_list = DB::table('rfid') ->get();
+      
+       $course_list= DB::table('courses')->get();
+        
+         
+     return view('student.create')->with('rfid_list', $rfid_list)->with('course_list', $course_list);
     }
 
     /**
@@ -71,7 +71,7 @@ class AllstudentController extends Controller
         $student->classname=$request->classname;
         $student->sectionname=$request->sectionname;
         $student->save();
-        return redirect('allstudent')->with('success', 'Registered Successful!');
+        return redirect('allstudent/create')->with('success', 'Registered Successful!');
     }
 
     /**
@@ -80,9 +80,9 @@ class AllstudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('');
     }
 
     /**
