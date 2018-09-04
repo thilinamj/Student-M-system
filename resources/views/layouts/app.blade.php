@@ -51,9 +51,9 @@
               <!-- <li><a href="#">Class</a></li> -->
               <li class="dropdown" id="topStudentMainNav">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-list-alt"></i> Student <span class="caret"></span></a>
-        
+  
                   <ul class="dropdown-menu">
-                    <li id="addStudentNav"><a href="{{ route('create') }}">Add Student</a></li>                                               
+                    <li id="addStudentNav"><a href="{{ route('allstudent.index') }}">View Student</a></li>                                               
                     <li id="manageStudentNav"><a href="">Manage Student</a></li>           
                   </ul>
                 </li>
