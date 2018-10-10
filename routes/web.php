@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home'); 
 
+
 Route::get('/student/create', 'studentController@index')->name('create');
 Route::post('student', 'studentController@store');
 
@@ -34,6 +35,7 @@ Route::post('student', 'studentController@store');
 Route::resource('allcourse','AllcourseController');
 Route::resource('allstudent','AllstudentController');
 Route::post('allstudent/fetch', 'AllstudentController@fetch')->name('allstudent.fetch');
+Route::any('/search', 'Allstudentcontroller@search')->name('search'); 
 
 
 
