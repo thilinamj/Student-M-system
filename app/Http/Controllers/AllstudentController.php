@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use\App\Student;
 use DB;
 
@@ -15,8 +16,9 @@ class AllstudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('student.view');
+
+    {   $student_list = DB::table('students') ->get();
+        return view('student.view')->with('student_list', $student_list);
     }
         
     
@@ -135,4 +137,21 @@ class AllstudentController extends Controller
      }
      echo $output;
     }
+
+    public function search(){
+
+
+        $q = Input::get ( 'q' );
+        $user = Student::where('rnumber','LIKE','%'.$q.'%')->orWhere('fullname','LIKE','%'.$q.'%')->get();
+        if(count($user) > 0)
+            return view('home')->withDetails($user)->withQuery ( $q );
+        else return view ('home')->withMessage('No Details found. Try to search again !');
+    
+    
+    }
+
+
+
+
+
 }
