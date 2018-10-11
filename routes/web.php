@@ -36,6 +36,7 @@ Route::resource('allcourse','AllcourseController');
 Route::resource('allstudent','AllstudentController');
 Route::post('allstudent/fetch', 'AllstudentController@fetch')->name('allstudent.fetch');
 Route::any('/search', 'Allstudentcontroller@search')->name('search'); 
+Route::get('/searchstd', 'Allstudentcontroller@showstudent');
 
 
 
