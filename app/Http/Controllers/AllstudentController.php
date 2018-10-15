@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use\App\Student;
+use\App\Course;
 use DB;
 
 
@@ -18,7 +19,7 @@ class AllstudentController extends Controller
      */
     public function index()
 
-    {   $student_list = DB::table('students') ->get();
+    {   $student_list = DB::table('courses') ->get();
         return view('student.view')->with('student_list', $student_list);
     }
         
@@ -117,10 +118,14 @@ class AllstudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $Student = student::findOrFail($request->student_id);
+        $Student->delete();
+        return redirect('viewstd ');
     }
+
+
 
     function fetch(Request $request)
     { 
@@ -139,6 +144,9 @@ class AllstudentController extends Controller
      echo $output;
     }
 
+
+
+
     public function search(){
 
 
@@ -151,6 +159,9 @@ class AllstudentController extends Controller
     
     }
 
+
+
+
     public function showstudent(Request $request){
 
         $showstd = DB::table('students')->where('classname', $request->id)->get();
@@ -160,6 +171,17 @@ class AllstudentController extends Controller
         ]);
 
 
+
+}
+
+public function view(){
+
+    $course_list= DB::table('courses')->get();
+    $cd = Input::get ( 'cd' );
+    $std = Student::where('classname','LIKE','%'.$cd.'%')->get();
+    if(count($std) > 0)
+    return view('student.view2')->withDetails($std)->withQuery ( $cd)->with('course_list', $course_list);
+    else return view ('student.view2')->withMessage('No Details found. Try to search again !')->with('course_list', $course_list);
 
 }
 }

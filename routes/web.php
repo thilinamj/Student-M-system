@@ -38,6 +38,13 @@ Route::post('allstudent/fetch', 'AllstudentController@fetch')->name('allstudent.
 Route::any('/search', 'Allstudentcontroller@search')->name('search'); 
 Route::get('/searchstd', 'Allstudentcontroller@showstudent');
 
+Route::resource('attendense','AllattendenseController');
+
+
+Route::any('/att', 'Allattendensecontroller@atreport');
+
+Route::any('/viewstd', 'Allstudentcontroller@view')->name('viewstd'); 
+
 
 
 

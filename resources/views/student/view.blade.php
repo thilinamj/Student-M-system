@@ -6,18 +6,20 @@
                 <li class="breadcrumb-item active" aria-current="page">Students View</li>
         </ol>
     <div class="row">
-        <div class="col-md-4">
+       <!-- <div class="col-md-4">
             @include('layouts/sidebar')
-        </div>
+        </div>-->
 
     
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="panel panel-default">
-                    <div class="panel-heading"><strong> View Students</strong></div>
+                        <div class="panel-heading"><strong> View Students</strong></div>
                             <div class="panel-body">
-
-                                    <span>Product Name: </span>
+                                      
+                             <div class="form-row">
+                                    <div class="form-group">
+                                <span>Class Name: </span>
                                 <select style="width: 200px" class="showstudent" id="student_id">
                               
                                     <option value="0" disabled="true" selected="true">-Select-</option>
@@ -27,42 +29,45 @@
                           
                               
                                 </select>
+                                    </div>
+                             </div>
                               
-                                <span>Product Name: </span>
-                                <select style="width: 200px" class="productname">
-                              
-                                    <option value="0" disabled="true" selected="true">Product Name</option>
-                                </select>
-                              
-                               
-                              
-                                <table class="table table-striped" id="showstudent">
+                               <hr>
+                                <div class="showstdtable">
+                                <table class="table " id="showstudent">
                                     <thead>
                                         <tr> 
                                             <th>Register Number</th>
                                             <th>Full Name</th>
+                                            <th>Address</th>
                                             <th>Mobile Number</th>
+                                            <th>Land Number</th>
                                             <th>Email</th>
+                                            <th>Parent name</th>
+                                            <th>Parent Address</th>
+                                            <th>Birth Day</th>
+                                            <th>Register Date</th>
+                                            <th>Action</th>
+                                            
                                            
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                       
-                                        
-                                      
+                                 <body>  
                                     </tbody>
                                 </table>
-                            </div>
+
+                                </div> <!--table-->
+                            </div> <!--body-->
 
                               
-                            </div>
+                            
                                   
-                    </div>
-                </div>
-            </div>
-    </div>
+                    </div> <!--pannel default-->
+                </div> <!--card-->
+            </div> <!--col-md -8-->
+    </div> <!--row-->
    
-</div>
+</div> <!--container-->
 @endsection
 
 @section('script')
@@ -95,7 +100,7 @@ $.ajax({
                  
                        for (var i = 0; i < data.message.length; i++){
 					 	  
-					 	   $('#showstudent').append('<tr id="row'+i+'"> <td>'+obj1.rnumber+'</td> <td>'+obj1.fullname+'</td> <td></td> <td></td></tr>');  
+					 	   $('#showstudent').append('<tr id="row'+i+'"> <td>'+obj1.rnumber+'</td> <td>'+obj1.fullname+'</td> <td>'+obj1.caddress+'</td> <td>'+obj1.mnumber+'</td> <td>'+obj1.lnumber+'</td> <td>'+obj1.email+'</td> <td>'+obj1.parentname+'</td> <td>'+obj1.paddress+'</td> <td>'+obj1.bday+'</td> <td>'+obj1.rdate+'</td></tr>');  
 						  
 					 	}
 					// 	document.getElementById("total").value=total.toFixed(2);

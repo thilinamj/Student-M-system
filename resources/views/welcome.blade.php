@@ -84,13 +84,13 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    NewSigma Higher Institute<br>
-                    Ratnapura
+                <div class="title">
+                    NewSigma Higher Institute
+                   
                 </div>
 
                 <div class="links">
-                    <a href=#></a>
+                        <img src="/img/logo.jpg" alt="no logo">    
 
 
                 </div>
