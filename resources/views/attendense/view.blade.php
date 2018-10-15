@@ -3,7 +3,7 @@
 <div class="container ">
     
                     <ol class="breadcrumb">
-                      <li class="breadcrumb-item active" aria-current="page">Home</li>
+                      <li class="breadcrumb-item active" aria-current="page">Home/Attendense</li>
                     </ol>
                  
     <div class="row">
@@ -26,23 +26,47 @@
 
                         </div>
                         <div class="card-body">
-                           
-                            <form action="{{ url('/search') }}" method="POST" role="search">
+
+                              
+                            <form action="{{ url('/att') }}" method="POST" role="search">
                                 {{ csrf_field() }}
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="q"
-                                        placeholder="Search Student Name or Register Number"> <span class="input-group-btn">
-                                        <button type="submit" class="btn btn-default">
+
+                               
+
+                                <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                                <label for="className">Class</label>
+                                                <select class="form-control" name="classname" id="clzn" >
+                                                @foreach($course_list as $cr)
+                                                <option value="{{ $cr->classname}}">{{ $cr->classname }}</option>
+                                                @endforeach
+                                            </select> 
+                                     </div>
+
+                                     <div class="form-group col-md-4">
+                                            <label for="time">Select Time</label>
+                                            <input type="date" name="cd" class="form-control" >
+                                    </div>
+                                    
+                                    <div class="form-group col-md-4"></div>
+
+                                   
+                                    <button type="submit" class="btn btn-default">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
-                                    </span>
+                                     
                                 </div>
+    
+                                        
+                                   
+                                      
+                                
                             </form>
                             
                             <div class="search">
                                 @if(isset($details))
                                 <hr>
-                                    <h3> The Search Student details for your <b> {{ $query }} </b> are :</h3>
+                                    <h3> The Attendense details for your <b> {{ $query }} </b> are :</h3>
                                     <hr>
 
                                     <table class="table table-striped">
@@ -50,35 +74,29 @@
                                         <tr> 
                                             <th>Register Number</th>
                                             <th>Full Name</th>
-                                            <th>Mobile Number</th>
-                                            <th>Email</th>
-                                            <th>Parent Name</th>
-                                            <th>Class</th>
-                                            <th>Section</th>
+                                          
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($details as $user)
                                         <tr>
-                                            <td>{{$user->rnumber}}</td>
+                                            <td>{{$user->tag}}</td>
                                             <td>{{$user->fullname}}</td>
-                                            <td>{{$user->mnumber}}</td>
-                                            <td>{{$user->email}}</td>
-                                            <td>{{$user->parentname}}</td>
-                                            <td>{{$user->classname}}</td>
-                                            <td>{{$user->sectionname}}</td>
+                                           
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                                @elseif(isset($message))
-                                <p>{{$message}}</p>
-                                
-                                @endif
+                               
                             </div>
-
+                           <hr>
                         </div> <!--cardbody-->
+
+                        @elseif(isset($message))
+                        <p>{{$message}}</p>
+                        
+                        @endif
                 </div> <!--pannel default-->
             </div> <!--col-md-8-->
     </div> <!--row-->

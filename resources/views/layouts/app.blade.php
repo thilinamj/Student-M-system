@@ -53,12 +53,12 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-list-alt"></i> Student <span class="caret"></span></a>
   
                   <ul class="dropdown-menu">
-                    <li id="addStudentNav"><a href="{{ route('allstudent.index') }}">View Student</a></li>                                               
-                    <li id="manageStudentNav"><a href="">Manage Student</a></li>           
+                    <li id="addStudentNav"><a href="{{ route('allstudent.create') }}">New Student Registration</a></li>                                               
+                    <li id="manageStudentNav"><a href="{{ route('allstudent.index') }}">Manage Students</a></li>           
                   </ul>
                 </li>
 
-                <li id="topNavDashboard"><a href="{{ route('allcourse.index') }}"> <i class="glyphicon glyphicon-edit"></i> Class <span class="sr-only">(current)</span></a></li>
+               
 
 
 
@@ -67,12 +67,14 @@
              -->
       
               <li class="dropdown" id="topAttendanceMainNav">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-time"></i> Attendance <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-edit"></i> Class <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li id="takeAttendNav"><a href="">Take Attendance</a></li>
-                  <li id="attenReport"><a href="">Attendance Report</a></li>
+                  <li id="takeAttendNav"><a href="{{ route('allcourse.create') }}">Create New Class</a></li>
+                  <li id="attenReport"><a href=" {{ route('allcourse.index') }}">View All Courses</a></li>
                 </ul>
               </li>  
+
+              <li id="topNavDashboard"><a href="{{ route('attendense.index') }}"> <i class="glyphicon glyphicon-time"></i> Attendense<span class="sr-only">(current)</span></a></li>
                <!--   
             <li class="dropdown" id="topMarksheetMainNav">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-duplicate"></i> Marksheet <span class="caret"></span></a>
