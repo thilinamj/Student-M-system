@@ -53,8 +53,8 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-list-alt"></i> Student <span class="caret"></span></a>
   
                   <ul class="dropdown-menu">
-                    <li id="addStudentNav"><a href="{{ route('allstudent.create') }}">New Student Registration</a></li>                                               
-                    <li id="manageStudentNav"><a href="{{ route('allstudent.index') }}">Manage Students</a></li>           
+                    <li id="addStudentNav"><a href="{{ route('allstudent.create') }}">Registration</a></li>                                               
+                    <li id="manageStudentNav"><a href="{{ route('allstudent.index') }}">View</a></li>           
                   </ul>
                 </li>
 
