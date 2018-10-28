@@ -12,6 +12,11 @@ use DB;
 
 class AllstudentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -109,7 +114,9 @@ class AllstudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Student = student::findOrFail($request->student_id);
+        $Student->update($request->all());
+         return back();
     }
 
     /**
