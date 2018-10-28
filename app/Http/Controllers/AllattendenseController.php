@@ -17,6 +17,11 @@ use DB;
 
 class AllattendenseController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -101,7 +106,16 @@ class AllattendenseController extends Controller
     public function atreport()
     {   $course_list= DB::table('courses')->get();
         $cd = Input::get ( 'cd' );
-        $card = rfid::where('date','LIKE','%'.$cd.'%')->get();
+
+
+        $card = DB::table('rfid')
+            ->leftJoin('students', 'rfid.tag', '=', 'students.rnumber')
+            ->where('date','LIKE','%'.$cd.'%')->get();
+
+
+
+
+       // $card = rfid::where('date','LIKE','%'.$cd.'%')->get();
         if(count($card) > 0)
         return view('attendense.view')->withDetails($card)->withQuery ( $cd)->with('course_list', $course_list);
         else return view ('attendense.view')->withMessage('No Details found. Try to search again !')->with('course_list', $course_list);
